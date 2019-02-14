@@ -34,10 +34,11 @@ spec:
                           sh 'aws ecr get-login --region eu-west-1 > lgn'
                           //sh "echo foo > result";
                           sh 'echo check'
-                          def tfile = new File('lgn').readLines()
-                          return tfile[1..tfile.size-1].join("")
-                          //def output=readFile('lgn').trim()
-                          echo "output=$tfile";
+                          def outputs=readFile('lgn').trim()
+                          String output = outputs.split('\n') // Split into an array based on newline
+                                  .drop(1)     // Drop the first element
+                                  .join('\n')  // Join back into a string separated by newline
+                          echo $output
                       }
                   }
 
