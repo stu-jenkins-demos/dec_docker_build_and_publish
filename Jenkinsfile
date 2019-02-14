@@ -11,8 +11,8 @@ metadata:
     some-label: some-label-value
 spec:
   containers:
-  - name: maven
-    image: maven:alpine
+  - name: awscli
+    image: mesosphere:aws-cli
     command:
     - cat
     tty: true
