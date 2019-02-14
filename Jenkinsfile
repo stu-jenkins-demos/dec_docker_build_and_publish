@@ -27,8 +27,12 @@ spec:
   stages {
       stage('BuildImage') {
           steps {
+              container('awscli'){
+                  echo 'getting a login'
+              }
+
               container('busybox'){
-          echo 'building an vimage'
+                echo 'building an vimage'
         }
       }
     }
