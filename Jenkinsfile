@@ -27,7 +27,7 @@ spec:
   stages {
     stage('BuildImage') {
       steps {
-        echo 'building an image'
+        echo 'building an vimage'
       }
     }
   }
