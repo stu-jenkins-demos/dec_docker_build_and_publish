@@ -41,7 +41,7 @@ spec:
               container('awscli'){
                   withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: awsCreds, secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
                       script{
-                          sh 'aws ecr get-login --region ${awsRegion} --no-include-email > lgn'
+                          sh "aws ecr get-login --region ${awsRegion} --no-include-email > lgn"
                           env.dockerLogin = readFile 'lgn'
                       }
                   }
