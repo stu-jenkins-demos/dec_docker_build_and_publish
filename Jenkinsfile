@@ -29,11 +29,12 @@ spec:
           steps {
               container('awscli'){
                   withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'ecr_push_pull', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
-                      script{
+                      //script{
                           sh 'aws ecr get-login --region eu-west-1 > lgn'
-                          def output=readFile('lgn').trim()
-                          echo $output
-                      }
+                          //def output=readFile('lgn').trim()
+                          //echo $output
+                          version=readFile('lgn')
+                      //}
                   }
 
               }
