@@ -12,7 +12,7 @@ metadata:
 spec:
   containers:
   - name: awscli
-    image: mesosphere:aws-cli
+    image: mesosphere/aws-cli:1.14.5
     command:
     - cat
     tty: true
