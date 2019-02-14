@@ -41,6 +41,8 @@ spec:
 
               container('busybox'){
                 echo 'building an vimage'
+                  echo "${env.FILENAME}"
+
         }
       }
     }
