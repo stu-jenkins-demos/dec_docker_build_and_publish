@@ -1,5 +1,6 @@
 
 def awsCreds = "ecr_push_pull"
+def awsRegion = "eu-west-1"
 
 pipeline {
   agent {
@@ -40,7 +41,7 @@ spec:
               container('awscli'){
                   withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: awsCreds, secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
                       script{
-                          sh 'aws ecr get-login --region eu-west-1 --no-include-email > lgn'
+                          sh 'aws ecr get-login --region ${awsRegion} --no-include-email > lgn'
                           env.dockerLogin = readFile 'lgn'
                       }
                   }
