@@ -38,7 +38,7 @@ spec:
       stage('BuildImage') {
           steps {
               container('awscli'){
-                  withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: $awsCreds, secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
+                  withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: awsCreds, secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
                       script{
                           sh 'aws ecr get-login --region eu-west-1 --no-include-email > lgn'
                           env.dockerLogin = readFile 'lgn'
