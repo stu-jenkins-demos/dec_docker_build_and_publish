@@ -1,6 +1,7 @@
 
 def awsCreds = "ecr_push_pull"
 def awsRegion = "eu-west-1"
+def awscliContainer = "mesosphere/aws-cli:1.14.5"
 
 pipeline {
   agent {
@@ -16,7 +17,7 @@ metadata:
 spec:
   containers:
   - name: awscli
-    image: mesosphere/aws-cli:1.14.5
+    image: ${awscliContainer}
     command:
     - cat
     tty: true
