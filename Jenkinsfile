@@ -38,22 +38,19 @@ spec:
                   withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'ecr_push_pull', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
                       script{
                           sh 'aws ecr get-login --region eu-west-1 --no-include-email > lgn'
-                          //def output=readFile('lgn').trim()
                           env.dockerLogin = readFile 'lgn'
                       }
                   }
               }
 
               container('docker'){
-              echo 'building an vimage'
-              //echo "${env.dockerLogin}"
-              sh "${env.dockerLogin}"
-              sh "docker build . -t 024942195839.dkr.ecr.eu-west-1.amazonaws.com/stubrownuk123"
-              sh "docker push 024942195839.dkr.ecr.eu-west-1.amazonaws.com/stubrownuk123"
+                  sh "${env.dockerLogin}"
+                  sh "docker build . -t 024942195839.dkr.ecr.eu-west-1.amazonaws.com/stubrownuk123"
+                  sh "docker push 024942195839.dkr.ecr.eu-west-1.amazonaws.com/stubrownuk123"
 
-        }
+              }
+          }
       }
-    }
   }
 }
 
