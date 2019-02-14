@@ -26,8 +26,10 @@ spec:
   }
   stages {
     stage('BuildImage') {
-      steps {
-        echo 'building an vimage'
+      container('busybox'){
+        steps {
+          echo 'building an vimage'
+        }
       }
     }
   }
