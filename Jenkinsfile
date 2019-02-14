@@ -33,6 +33,7 @@ spec:
                       script{
                           sh 'aws ecr get-login --region eu-west-1 > lgn'
                           //sh "echo foo > result";
+                          sh 'check'
                           def output=readFile('lgn').trim()
                           echo "output=$output";
                       }
