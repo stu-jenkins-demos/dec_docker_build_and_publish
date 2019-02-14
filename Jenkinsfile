@@ -1,9 +1,11 @@
 
 def awsCreds = "ecr_push_pull"
 def awsRegion = "eu-west-1"
-def awsRepo =  "024942195839.dkr.ecr.eu-west-1.amazonaws.com/stubrownuk123"
+def ecrRepo =  "024942195839.dkr.ecr.eu-west-1.amazonaws.com/stubrownuk123"
+def ecrTag = "latest"
 def awscliContainer = "mesosphere/aws-cli:1.14.5"
 def dockerContainer = "docker:18.06"
+
 
 pipeline {
   agent {
@@ -52,7 +54,7 @@ spec:
 
               container('docker'){
                   sh "${env.dockerLogin}"
-                  sh "docker build . -t ${awsRepo}:new"
+                  sh "docker build . -t ${ecrRepo}:${ecrTag}"
                   sh "docker push 024942195839.dkr.ecr.eu-west-1.amazonaws.com/stubrownuk123"
 
               }
