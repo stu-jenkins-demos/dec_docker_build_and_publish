@@ -31,13 +31,8 @@ spec:
                   withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'ecr_push_pull', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
                       script{
                           sh 'aws ecr get-login --region eu-west-1 > lgn'
-                          //sh "echo foo > result";
-                          //sh 'echo check'
                           def output=readFile('lgn').trim()
-                          //String output = outputs.split('\n') // Split into an array based on newline
-                          ///        .drop(1)     // Drop the first element
-                          //        .join('\n')  // Join back into a string separated by newline
-                          sh 'echo $output'
+                          echo $output
                       }
                   }
 
