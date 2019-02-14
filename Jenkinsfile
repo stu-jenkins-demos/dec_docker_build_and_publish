@@ -42,9 +42,10 @@ spec:
       }
     }
   }
+    // 024942195839.dkr.ecr.eu-west-1.amazonaws.com/stubrownuk
+    // ecr_push_pull
 }
 
 
-#024942195839.dkr.ecr.eu-west-1.amazonaws.com/stubrownuk
-#ecr_push_pull
+
 
