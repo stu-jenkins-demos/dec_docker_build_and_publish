@@ -41,7 +41,7 @@ spec:
     }
   }
   stages {
-      stage('BuildImage') {
+      stage('Build and push Image') {
           steps {
               container('awscli'){
                   withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: awsCreds, secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
