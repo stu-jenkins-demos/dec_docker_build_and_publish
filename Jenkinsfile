@@ -49,7 +49,7 @@ spec:
               container('docker'){
                 echo 'building an vimage'
                   echo "${env.FILENAME}"
-                  sh ${env.FILENAME}
+                  sh "${env.FILENAME}"
 
         }
       }
