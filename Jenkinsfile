@@ -51,7 +51,7 @@ spec:
               //echo "${env.dockerLogin}"
               sh "${env.dockerLogin}"
               sh "docker build . -t 024942195839.dkr.ecr.eu-west-1.amazonaws.com/stubrownuk"
-              sh "docker push"
+              sh "docker push 024942195839.dkr.ecr.eu-west-1.amazonaws.com/stubrownuk"
 
         }
       }
