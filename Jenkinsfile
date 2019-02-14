@@ -1,3 +1,6 @@
+
+def awsCreds = "ecr_push_pull"
+
 pipeline {
   agent {
     kubernetes {
