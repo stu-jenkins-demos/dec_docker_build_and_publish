@@ -16,11 +16,18 @@ spec:
     command:
     - cat
     tty: true
-  - name: busybox
-    image: busybox
-    command:
-    - cat
+  - name: docker
+    image: docker:18.06
+    command: ["cat"]
     tty: true
+    volumeMounts:
+    - mountPath: /var/run/docker.sock
+      name: docker-socket
+  volumes:
+  - name: docker-socket
+    hostPath:
+      path: /var/run/docker.sock
+      type: Socket
 """
     }
   }
@@ -39,9 +46,10 @@ spec:
 
               }
 
-              container('busybox'){
+              container('docker'){
                 echo 'building an vimage'
                   echo "${env.FILENAME}"
+                  sh ${env.FILENAME}
 
         }
       }
