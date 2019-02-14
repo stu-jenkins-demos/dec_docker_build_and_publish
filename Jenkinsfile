@@ -39,17 +39,19 @@ spec:
                       script{
                           sh 'aws ecr get-login --region eu-west-1 --no-include-email > lgn'
                           def output=readFile('lgn').trim()
-                          env.FILENAME = readFile 'lgn'
+                          env.dockerLogin = readFile 'lgn'
                       }
-                      echo "${env.FILENAME}"
+                      //echo "${env.dockerLogin}"
                   }
 
               }
 
               container('docker'){
-                echo 'building an vimage'
-                  echo "${env.FILENAME}"
-                  sh "${env.FILENAME}"
+              echo 'building an vimage'
+              //echo "${env.dockerLogin}"
+              sh "${env.dockerLogin}"
+              sh "docker build . -t 024942195839.dkr.ecr.eu-west-1.amazonaws.com/stubrownuk"
+              sh "docker push"
 
         }
       }
