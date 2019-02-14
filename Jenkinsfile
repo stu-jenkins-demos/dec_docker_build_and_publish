@@ -55,7 +55,7 @@ spec:
               container('docker'){
                   sh "${env.dockerLogin}"
                   sh "docker build . -t ${ecrRepo}:${ecrTag}"
-                  sh "docker push 024942195839.dkr.ecr.eu-west-1.amazonaws.com/stubrownuk123"
+                  sh "docker push ${ecrRepo}:${ecrTag}"
 
               }
           }
