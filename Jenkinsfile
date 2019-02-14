@@ -30,11 +30,12 @@ spec:
               container('awscli'){
                   withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'ecr_push_pull', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
 
-                      sh 'aws ecr get-login --region eu-west-1 > lgn'
-                      //sh "echo foo > result";
-                      def output=readFile('lgn').trim()
-                      echo "output=$output";
-
+                      script{
+                          sh 'aws ecr get-login --region eu-west-1 > lgn'
+                          //sh "echo foo > result";
+                          def output=readFile('lgn').trim()
+                          echo "output=$output";
+                      }
                   }
 
               }
