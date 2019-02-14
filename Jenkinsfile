@@ -37,7 +37,7 @@ spec:
                           //String output = outputs.split('\n') // Split into an array based on newline
                           ///        .drop(1)     // Drop the first element
                           //        .join('\n')  // Join back into a string separated by newline
-                          echo $output
+                          sh 'echo $output'
                       }
                   }
 
