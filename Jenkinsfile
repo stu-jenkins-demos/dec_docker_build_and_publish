@@ -2,6 +2,7 @@
 def awsCreds = "ecr_push_pull"
 def awsRegion = "eu-west-1"
 def awscliContainer = "mesosphere/aws-cli:1.14.5"
+def dockerContainer = "docker:18.06"
 
 pipeline {
   agent {
@@ -22,7 +23,7 @@ spec:
     - cat
     tty: true
   - name: docker
-    image: docker:18.06
+    image: ${dockerContainer}
     command: ["cat"]
     tty: true
     volumeMounts:
