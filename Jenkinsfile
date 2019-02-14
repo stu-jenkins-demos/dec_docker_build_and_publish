@@ -1,6 +1,7 @@
 
 def awsCreds = "ecr_push_pull"
 def awsRegion = "eu-west-1"
+def awsRepo =  "024942195839.dkr.ecr.eu-west-1.amazonaws.com/stubrownuk123"
 def awscliContainer = "mesosphere/aws-cli:1.14.5"
 def dockerContainer = "docker:18.06"
 
@@ -51,7 +52,7 @@ spec:
 
               container('docker'){
                   sh "${env.dockerLogin}"
-                  sh "docker build . -t 024942195839.dkr.ecr.eu-west-1.amazonaws.com/stubrownuk123"
+                  sh "docker build . -t ${awsRepo}:new"
                   sh "docker push 024942195839.dkr.ecr.eu-west-1.amazonaws.com/stubrownuk123"
 
               }
