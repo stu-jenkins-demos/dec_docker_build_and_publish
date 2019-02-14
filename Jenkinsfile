@@ -51,12 +51,10 @@ spec:
                       }
                   }
               }
-
               container('docker'){
                   sh "${env.dockerLogin}"
                   sh "docker build . -t ${ecrRepo}:${ecrTag}"
                   sh "docker push ${ecrRepo}:${ecrTag}"
-
               }
           }
       }
