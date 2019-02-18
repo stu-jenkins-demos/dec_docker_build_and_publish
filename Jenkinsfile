@@ -1,4 +1,4 @@
-@Library('global-libs') _
+@Library('jenkins-shared-library') _
 ecrBuildPush {
 
 
