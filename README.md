@@ -2,6 +2,6 @@
 
 Needs:
 
-access to global library stu-jenkins-demos/demo-libs as 'stu-jenkins-demos'
+access to global library stu-jenkins-demos/demo-libs as 'jenkins-shared-library'
 
 aws creds as 'ecr_push_pull'
